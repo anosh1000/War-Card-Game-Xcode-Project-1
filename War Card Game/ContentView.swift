@@ -60,7 +60,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text(String(playerScore))
+                        Text(String(cpuScore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -75,22 +75,20 @@ struct ContentView: View {
     
     //Deal function deals the cards whenever the button is pressed
     func deal(){
-        var playerCardValue = Int.random(in: 2...14)
+        let playerCardValue = Int.random(in: 2...14)
         playerCard = "card" + String(playerCardValue)
-        var cpuCardValue = Int.random(in: 2...14)
+        
+        let cpuCardValue = Int.random(in: 2...14)
         cpuCard = "card" + String(cpuCardValue)
         
-        if playerCardValue > cpuCardValue {
+        if (playerCardValue > cpuCardValue) {
             playerScore += 1
         }
         else if cpuCardValue > playerCardValue {
             cpuScore += 1
         }
-        else {//If same card, swap scores.
-            var temp = playerScore
-            playerScore = cpuScore
-            cpuScore = temp
-        }
+    
+        
         
         
         
